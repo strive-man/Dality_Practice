@@ -1,0 +1,33 @@
+server:
+  port: 9025
+  max-http-header-size: 65546
+
+spring:
+  #这里是换数据源为druid，且配置连接数据库的信息
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/java_zgq?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: zgq123456
+
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/images/
+#关于mybatisPlus的一些配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.kgkt.tust.entity
+  #  global-config:
+  #    db-config:
+  #      id-type: auto # 配置主键自增
+  configuration:
+    #这里我们配置输出底层的sql,方便我们观察sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      # 逻辑删除全局值（默认 1、表示已删除）
+      logic-delete-value: 1
+      # 逻辑删除全局值（默认 0、表示未删除）
+      logic-not-delete-value: 0
+
+

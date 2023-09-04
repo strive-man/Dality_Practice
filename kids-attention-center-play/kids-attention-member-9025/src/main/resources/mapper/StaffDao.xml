@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgkt.tust.member.dao.StaffDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.kgkt.tust.member.entity.StaffEntity" id="staffMap">
+        <result property="staffId" column="staff_id"/>
+        <result property="staffName" column="staff_name"/>
+        <result property="staffSchool" column="staff_school"/>
+        <result property="staffDepartment" column="staff_department"/>
+        <result property="staffRole" column="staff_role"/>
+        <result property="staffAccount" column="staff_account"/>
+        <result property="staffPassword" column="staff_password"/>
+        <result property="version" column="version"/>
+        <result property="addTime" column="add_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+    <select id="selectByStaffAccount" resultType="com.kgkt.tust.member.entity.StaffEntity">
+        SELECT *
+        FROM `member_staff`
+        WHERE staff_account = #{staff_account}
+    </select>
+
+
+</mapper>

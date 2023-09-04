@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgkt.tust.member.dao.ParentDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.kgkt.tust.member.entity.ParentEntity" id="parentMap">
+        <result property="parentId" column="parent_id"/>
+        <result property="parentKidId" column="parent_kid_id"/>
+        <result property="parentName" column="parent_name"/>
+        <result property="parentRelationship" column="parent_relationship"/>
+        <result property="parentAccount" column="parent_account"/>
+        <result property="parentPassword" column="parent_password"/>
+        <result property="parentAge" column="parent_age"/>
+        <result property="parentPhone" column="parent_phone"/>
+        <result property="parentEmail" column="parent_email"/>
+        <result property="parentQqAccount" column="parent_qq_account"/>
+        <result property="parentWeixinAccount" column="parent_weixin_account"/>
+        <result property="version" column="version"/>
+        <result property="addTime" column="add_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+    <select id="selectByParentAccount"
+            resultType="com.kgkt.tust.member.entity.ParentEntity" resultMap="parentMap">
+        SELECT *
+        FROM `member_parent`
+        WHERE parent_account = #{parent_account}
+    </select>
+</mapper>
